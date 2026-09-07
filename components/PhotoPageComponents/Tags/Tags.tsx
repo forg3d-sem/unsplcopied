@@ -2,7 +2,6 @@ import React from 'react';
 import {Tag} from "@/lib/unsplash";
 import styles from './Tags.module.scss';
 import Link from "next/link";
-import {nanoid} from "nanoid";
 
 interface CollectionsProps {
     tags: Tag[]
@@ -15,8 +14,8 @@ const Tags = ({tags}:CollectionsProps) => {
     return (
         <div className={styles.tagsList}>
             {
-                verifiedTags.map((tag) => (
-                    <Link href={`/search?query=${tag.title}`} key={nanoid()} className={styles.tag}>
+                verifiedTags.map((tag, index) => (
+                    <Link href={`/search?query=${encodeURIComponent(tag.title)}`} key={`${tag.title}${index}`} className={styles.tag}>
                         {tag.title}
                     </Link>
                 ))

@@ -1,8 +1,8 @@
 import {createApi} from "unsplash-js";
-import {publicUnsplashApiKey} from "@/utility/environment";
+import {unsplashApiKey} from "@/utility/environment";
 
 const unsplash = createApi({
-    accessKey: publicUnsplashApiKey
+    accessKey: unsplashApiKey
 })
 
 export default unsplash;
