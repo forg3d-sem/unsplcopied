@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import Link from "next/link";
 
 const MainErrorPage = ({error, retry}: {
     error: Error & { digest?: string }
@@ -21,12 +20,6 @@ const MainErrorPage = ({error, retry}: {
                 >
                     Retry
                 </button>
-                <Link
-                    className='button secondary'
-                    href={'/'}
-                >
-                    Home
-                </Link>
             </div>
         </div>
     );
