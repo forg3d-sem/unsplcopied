@@ -1,0 +1,12 @@
+@use '@/styles/variables' as variables;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .paginationBtn {
+    background-color: transparent;
+    border: variables.$gray-600;
+  }
+}

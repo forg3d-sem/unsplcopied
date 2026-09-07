@@ -1,0 +1,10 @@
+.frame {
+  max-width: 1440px;
+  padding: 24px;
+  margin: 0 auto;
+  box-sizing: content-box;
+
+  @media (max-width: 767px) {
+    padding: 24px 0;
+  }
+}

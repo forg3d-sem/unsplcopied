@@ -1,0 +1,16 @@
+@use '@/styles/variables' as variables;
+
+.masonry {
+  columns: var(--columns) 256px;
+  width: 100%;
+  height: fit-content;
+
+  @media (max-width: 767px) {
+    columns: 1;
+  }
+}
+
+.masonryBottom {
+  display: flex;
+  justify-content: end;
+}

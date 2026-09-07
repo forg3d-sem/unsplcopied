@@ -1,0 +1,30 @@
+@use '@/styles/variables' as variables;
+
+.about {
+  margin-bottom: 12px;
+
+  .dataTitle {
+    color: variables.$gray-600;
+    font-weight: 700;
+  }
+
+  .dataDescription {
+    margin-bottom: 6px;
+  }
+
+  .dataSubSection {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .dataSubBlock {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+
+    .subBlockText {
+      margin-left: 6px;
+      color: variables.$gray-600;
+    }
+  }
+}

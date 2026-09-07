@@ -1,0 +1,111 @@
+@use "@/styles/reset" as *;
+@use '@/styles/variables' as variables;
+@include CssReset;
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  border-bottom: 1px solid variables.$gray-200;
+}
+
+.horizontal-padding {
+  padding: 0;
+
+  @media (max-width: 767px) {
+    padding: 0 12px;
+  }
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-page-controls {
+  margin-bottom: 12px;
+
+  &-bottom {
+    margin-top: 12px;
+    margin-bottom:  0;
+    justify-content: end;
+    display: none;
+
+    @media (max-width: 1119px) {
+      display: flex;
+    }
+  }
+
+  .toggle-responsive-container {
+    display: block;
+
+    @media (max-width: 1119px) {
+      display: none;
+    }
+  }
+}
+
+.search-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 24px 0 48px 0;
+}
+
+.query-row {
+  margin-bottom: 12px;
+
+  .query-empty-placeholder {
+    height: 48px;
+  }
+}
+
+.error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 12px;
+  }
+  p {
+    margin-bottom: 24px;
+    font-size: 24px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 24px;
+
+    .button {
+      padding: 6px 12px;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: border 0.2s ease;
+      text-decoration: none;
+
+      &:hover {
+        border: 1px solid variables.$gray-600;
+      }
+    }
+    .primary {
+      background-color: variables.$gray-200;
+      border: 1px solid variables.$gray-200;
+      color: variables.$gray-600;
+    }
+    .secondary {
+      background-color: transparent;
+      color: variables.$gray-600;
+      border: 1px solid transparent;
+    }
+  }
+}

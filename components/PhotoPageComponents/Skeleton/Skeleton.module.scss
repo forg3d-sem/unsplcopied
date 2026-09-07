@@ -1,0 +1,39 @@
+@use '@/styles/variables' as variables;
+@use '@/styles/skeletonAnimation' as *;
+@include ShiverAnimation;
+
+.user {
+  width: 100%;
+  max-width: 375px;
+  height: 32px;
+}
+
+.photo {
+  width: 100%;
+  height: 75dvh;
+  margin: 24px auto;
+}
+
+.about {
+  height: 75px;
+  margin-bottom: 12px;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  height: 36px;
+  border-radius: 6px;
+  $widths: 60px, 90px, 72px, 110px, 84px, 65px, 100px, 78px;
+
+
+  @for $i from 1 through length($widths) {
+    &:nth-child(#{length($widths)}n+#{$i}) {
+      width: nth($widths, $i);
+    }
+  }
+}
+

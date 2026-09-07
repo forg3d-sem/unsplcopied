@@ -1,0 +1,6 @@
+@use '../../../styles/variables' as variables;
+
+.emptyText {
+  color: variables.$gray-600;
+  font-size: 28px;
+}

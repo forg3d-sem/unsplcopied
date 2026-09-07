@@ -1,0 +1,8 @@
+@use '@/styles/variables' as variables;
+
+.photo {
+  width: auto;
+  height: auto;
+  max-height: 75dvh;
+  margin: 24px auto;
+}

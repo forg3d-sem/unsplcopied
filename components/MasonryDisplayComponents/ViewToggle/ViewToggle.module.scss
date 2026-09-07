@@ -1,0 +1,6 @@
+@use '@/styles/variables' as variables;
+
+.gridToggle {
+  background-color: transparent;
+  border: variables.$gray-600;
+}
