@@ -4,7 +4,7 @@ import ViewToggle from "@/components/MasonryDisplayComponents/ViewToggle/ViewTog
 import Pagination from "@/components/MasonryDisplayComponents/Pagination/Pagination";
 import Masonry from "@/components/MasonryDisplayComponents/MasonryGrid/Masonry";
 import {searchPhotos} from "@/lib/unsplash/";
-import {SearchParams} from "@/utilitiy/types";
+import {SearchParams} from "@/utility/types";
 import Empty from "@/components/MasonryDisplayComponents/Empty/Empty";
 import {Metadata} from "next";
 

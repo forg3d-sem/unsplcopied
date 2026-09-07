@@ -5,7 +5,6 @@ type ApiResult<T> = { data: T; error?: never; response: Response }
 
 export const handleFetchResponse = <T,>(result: ApiResult<T>):T => {
     if (result.error) {
-        console.log(result.error);
         if (result.response.status === 404) {
             notFound()
         }

@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './PhotoMasonry.module.scss';
-import {SearchParams} from "@/utilitiy/types";
+import {SearchParams} from "@/utility/types";
 import {Photo} from "@/lib/unsplash/types";
 import PhotoCard from "@/components/MasonryDisplayComponents/PhotoCard/PhotoCard";
-import {nanoid} from "nanoid";
 
 interface MasonryProps {
     images: Photo[],
@@ -15,9 +14,9 @@ const Masonry = ({images, searchParams}: MasonryProps) => {
 
     return (
         <div className={styles.masonry} style={{"--columns": searchParams.columns || 3} as React.CSSProperties}>
-            {images?.map((img: Photo) => (
+            {images.map((img: Photo) => (
                 <PhotoCard
-                    key={nanoid()}
+                    key={img.id}
                     photo={img}
                 />
 

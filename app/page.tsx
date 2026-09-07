@@ -4,7 +4,7 @@ import React from "react";
 import Pagination from "@/components/MasonryDisplayComponents/Pagination/Pagination";
 import ViewToggle from "@/components/MasonryDisplayComponents/ViewToggle/ViewToggle";
 import SearchInput from "@/components/SearchInput/SearchInput";
-import {SearchParams} from "@/utilitiy/types";
+import {SearchParams} from "@/utility/types";
 
 
 

@@ -1,7 +1,7 @@
 import {LayoutDashboard} from "lucide-react";
 import styles from '@/components/MasonryDisplayComponents/MasonryGrid/PhotoMasonry.module.scss';
 import React from 'react';
-import {SearchParams} from "@/utilitiy/types";
+import {SearchParams} from "@/utility/types";
 import Link from "next/link";
 
 interface ViewToggleProps {

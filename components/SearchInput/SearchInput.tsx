@@ -19,7 +19,10 @@ const SearchInput = () => {
     const searchVal = watch('search');
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
-        router.push(`/search?query=${data.search}`)
+        const params = new URLSearchParams({
+            query: data.search
+        });
+        router.push(`/search?${params}`)
     }
 
     return (

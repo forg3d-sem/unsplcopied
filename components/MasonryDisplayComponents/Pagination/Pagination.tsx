@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Pagination.module.scss';
 import {ChevronLeft, ChevronRight} from 'lucide-react';
 import Link from "next/link";
-import {SearchParams} from "@/utilitiy/types";
+import {SearchParams} from "@/utility/types";
 
 export interface NavigationProps {
     searchParams: SearchParams;

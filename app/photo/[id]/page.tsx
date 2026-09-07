@@ -15,7 +15,7 @@ type PhotoPageProps = {
 
 export async function generateMetadata({params}:PhotoPageProps):Promise<Metadata> {
     const {id} = await params;
-    const data = await getPhotoById(id);
+    const data = await getPhotoById(id, 3600);
 
     return{
         title: `Photo by ${data.user.name} | Unsplcopied`,
