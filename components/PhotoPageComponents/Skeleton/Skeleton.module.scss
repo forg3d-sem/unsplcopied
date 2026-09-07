@@ -1,3 +1,4 @@
+@use "sass:list";
 @use '@/styles/variables' as variables;
 @use '@/styles/skeletonAnimation' as *;
 @include ShiverAnimation;
@@ -22,17 +23,18 @@
 .tagContainer {
   display: flex;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
 .tag {
   height: 36px;
   border-radius: 6px;
-  $widths: 60px, 90px, 72px, 110px, 84px, 65px, 100px, 78px;
+  $widths: 120px, 90px, 146px, 110px, 160px, 130px, 100px, 200px;
+  $count: list.length($widths);
 
-
-  @for $i from 1 through length($widths) {
-    &:nth-child(#{length($widths)}n+#{$i}) {
-      width: nth($widths, $i);
+  @for $i from 1 through $count {
+    &:nth-child(#{$count}n + #{$i}) {
+      width: list.nth($widths, $i);
     }
   }
 }

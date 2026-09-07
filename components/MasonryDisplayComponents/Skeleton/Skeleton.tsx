@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from './Skeleton.module.scss';
 
-interface SkeletonProps {
-    columns: number;
-}
-
-const Skeleton = ({columns}: SkeletonProps) => {
+const Skeleton = () => {
     return (
         <>
             <div className='search-row horizontal-padding'>
@@ -17,7 +13,7 @@ const Skeleton = ({columns}: SkeletonProps) => {
             <div className='row-between main-page-controls horizontal-padding'>
                 <div className={`${styles.loadingBar} ${styles.nav}`}/>
             </div>
-            <div className={styles.fakeMasonry} style={{"--columns": columns || 3} as React.CSSProperties}>
+            <div className={styles.fakeMasonry}>
                 {
                     Array.from({length: 15}).map((_, i) => (
                         <div key={i} className={`${styles.loadingBar} ${styles.skeletonCard}`}/>
