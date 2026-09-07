@@ -15,7 +15,10 @@ const ErrorPage = ({error, retry}: {
                 {error.message}
             </p>
             <div className='buttons'>
-                <button className="button primary">
+                <button
+                    className="button primary"
+                    onClick={retry}
+                >
                     Retry
                 </button>
                 <Link
