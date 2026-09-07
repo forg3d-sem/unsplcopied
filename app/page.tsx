@@ -22,7 +22,7 @@ export default async function Home({searchParams}: Readonly<Props>) {
 
     return (
         <>
-            <div className='search-row'>
+            <div className='search-row horizontal-padding'>
                 <SearchInput/>
             </div>
             <div className='query-row'>

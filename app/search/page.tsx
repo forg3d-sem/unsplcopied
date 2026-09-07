@@ -33,10 +33,10 @@ export default async function SearchPage({searchParams}: Readonly<Props>) {
 
     return (
         <>
-            <div className='search-row'>
+            <div className='search-row horizontal-padding'>
                 <SearchInput/>
             </div>
-            <div className='query-row'>
+            <div className='query-row horizontal-padding'>
                 <h1>
                     {query}
                 </h1>
@@ -48,7 +48,7 @@ export default async function SearchPage({searchParams}: Readonly<Props>) {
             {
                 results.length > 0 &&
                 <>
-                    <div className='row-between main-page-controls'>
+                    <div className='row-between main-page-controls horizontal-padding'>
                         <div className="toggle-responsive-container">
                             <ViewToggle
                                 searchParams={params}
@@ -65,7 +65,7 @@ export default async function SearchPage({searchParams}: Readonly<Props>) {
                         images={results}
                         searchParams={params}
                     />
-                    <div className='row-between main-page-controls-bottom'>
+                    <div className='row-between horizontal-padding main-page-controls-bottom'>
                         <Pagination
                             searchParams={params}
                             basePath={path}
