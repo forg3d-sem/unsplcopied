@@ -22,6 +22,17 @@ const CollectionPhoto = ({photo, removeHandler, isPending}: CollectionPhotoProps
                     name={photo.author_name}
                     color={'#000'}
                 />
+                <button
+                    type='button'
+                    className={styles.removeBtn}
+                    disabled={isPending}
+                    onClick={(event) => removeHandler(event, photo.unsplash_id)}
+                >
+                    <ImageMinus
+                        size={24}
+                        color={'#676767'}
+                    />
+                </button>
             </div>
             <Link href={'/photo/' + photo.unsplash_id} rel="noopener noreferrer" className={styles.photoLink}>
                 <Image
