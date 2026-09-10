@@ -55,13 +55,12 @@ export async function toggleSave(
             return {success: true, data: null};
         }
 
-        const dataToSave: Omit<SimplifiedPhoto, 'id' | 'created_at'> = {
+        const dataToSave: Omit<SimplifiedPhoto, 'id' | 'created_at' | 'user_id'> = {
             unsplash_id: imageData.id,
             url: imageData.urls.regular,
             height: imageData.height,
             width: imageData.width,
             description: imageData.description,
-            user_id: session.user.id,
             author_name: imageData.user.name,
             author_avatar: imageData.user.profile_image.small
         }

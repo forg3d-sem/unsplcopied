@@ -1,4 +1,3 @@
-'use server';
 import {pool} from "./db";
 import {User} from "@/utility/types";
 
