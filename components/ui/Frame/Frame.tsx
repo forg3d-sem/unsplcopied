@@ -7,9 +7,9 @@ interface FrameProps {
 
 const Frame = ({ children }: FrameProps) => {
     return (
-        <div className={styles.frame}>
+        <section className={styles.frame}>
             {children}
-        </div>
+        </section>
     );
 };
 

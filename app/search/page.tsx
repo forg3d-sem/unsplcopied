@@ -3,10 +3,14 @@ import SearchInput from "@/components/SearchInput/SearchInput";
 import ViewToggle from "@/components/MasonryDisplayComponents/ViewToggle/ViewToggle";
 import Pagination from "@/components/MasonryDisplayComponents/Pagination/Pagination";
 import Masonry from "@/components/MasonryDisplayComponents/MasonryGrid/Masonry";
-import {searchPhotos} from "@/lib/unsplash/";
+import {Photo, searchPhotos} from "@/lib/unsplash/";
 import {SearchParams} from "@/utility/types";
 import Empty from "@/components/MasonryDisplayComponents/Empty/Empty";
 import {Metadata} from "next";
+import PhotoCard from "@/components/MasonryDisplayComponents/PhotoCard/PhotoCard";
+import {getCollectionPhotos} from "@/actions/collection";
+import {buildPhotoMap} from "@/utility/createPhotoMap";
+import {auth} from "@/lib/auth/auth";
 
 type Props = {
     searchParams: Promise<SearchParams>
@@ -29,7 +33,11 @@ export default async function SearchPage({searchParams}: Readonly<Props>) {
     const per_page = params.per_page;
     const query = params.query || '';
 
-    const {results, total_pages} = await searchPhotos(query, page, per_page);
+    const [data, collection, session] = await Promise.all([searchPhotos(query, page, per_page), getCollectionPhotos(), auth()])
+
+    const {results, total_pages} = data;
+
+    const collectionMap = collection.success ? buildPhotoMap(collection.data) : new Map();
 
     return (
         <>
@@ -42,7 +50,7 @@ export default async function SearchPage({searchParams}: Readonly<Props>) {
                 </h1>
             </div>
             {
-                results.length === 0 &&
+                data.results.length === 0 &&
                 <Empty/>
             }
             {
@@ -62,9 +70,19 @@ export default async function SearchPage({searchParams}: Readonly<Props>) {
                         />
                     </div>
                     <Masonry
-                        images={results}
                         searchParams={params}
-                    />
+                    >
+                        {results.map((img: Photo) => (
+                            <PhotoCard
+                                key={img.id}
+                                photo={img}
+                                isInCollection={collectionMap.has(img.id)}
+                                isAuthenticated={!!session?.user.id}
+                            />
+
+                        ))}
+                    </Masonry>
+
                     <div className='row-between horizontal-padding main-page-controls-bottom'>
                         <Pagination
                             searchParams={params}

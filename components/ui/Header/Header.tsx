@@ -1,7 +1,9 @@
 import React from 'react';
-import Frame from "@/components/Frame/Frame";
+import Frame from "@/components/ui/Frame/Frame";
 import Link from "next/link";
 import styles from './Header.module.scss';
+import ProfileSection from "./ProfileSection/ProfileSection";
+import SessionProviderWrap from "@/components/SessionProviderWrap";
 
 const Header = () => {
     return (
@@ -11,9 +13,9 @@ const Header = () => {
                     <Link href={'/'} className={styles.headerLink}>
                         <h1 className={styles.headerTitle}>UNSPLCOPIED</h1>
                     </Link>
-                    {/*<nav>*/}
-                    {/*    <Link href={'/'}>Home</Link>*/}
-                    {/*</nav>*/}
+                    <SessionProviderWrap>
+                        <ProfileSection/>
+                    </SessionProviderWrap>
                 </div>
             </Frame>
         </header>

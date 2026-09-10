@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {Search, X} from 'lucide-react';

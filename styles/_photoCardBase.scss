@@ -1,0 +1,91 @@
+@mixin PhotoCardBase {
+  .photoItem {
+    display: block;
+    margin-bottom: 24px;
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+
+      .userAvatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 8px
+      }
+      .userDetails {
+        display: flex;
+        flex-direction: column;
+
+        .userName {
+          color: #000;
+          opacity: 0.9;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+      }
+    }
+
+    .photoLink {
+      display: block;
+      position: relative;
+      z-index: 1;
+
+      .photo {
+        width: 100%;
+        height: auto;
+        z-index: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+                rgba(0, 0, 0, 0.4) 0%,
+                rgba(0, 0, 0, 0.2) 25%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.2) 75%,
+                rgba(0, 0, 0, 0.4) 100%
+        );
+        z-index: 2;
+        //animation for overlay
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        //inner layout
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .overlayTop {
+          display: flex;
+          justify-content: end;
+        }
+
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      &:hover .overlay, &:focus-visible .overlay, &:focus-within .overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .mobileInfo {
+      padding: 12px;
+      display: none;
+
+      @media (max-width: 767px) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

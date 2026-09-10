@@ -4,12 +4,15 @@ import Image from "next/image";
 import {Photo} from "@/lib/unsplash/types";
 import styles from './PhotoCard.module.scss';
 import UserData from "@/components/UserData/UserData";
+import CollectionToggle from "@/components/CollectionToggle/CollectionToggle";
 
 interface PhotoCardProps {
     photo: Photo,
+    isInCollection: boolean,
+    isAuthenticated: boolean,
 }
 
-const PhotoCard = ({photo}: PhotoCardProps) => {
+const PhotoCard = ({photo, isInCollection, isAuthenticated}: PhotoCardProps) => {
 
     return (
         <div className={styles.photoItem}>
@@ -18,6 +21,11 @@ const PhotoCard = ({photo}: PhotoCardProps) => {
                     src={photo.user.profile_image.small}
                     name={photo.user.name}
                     color={'#000'}
+                />
+                <CollectionToggle
+                    initialValue={isInCollection}
+                    isAuthenticated={isAuthenticated}
+                    data={photo}
                 />
             </div>
             <Link href={'/photo/' + photo.id} rel="noopener noreferrer" className={styles.photoLink}>
@@ -29,7 +37,13 @@ const PhotoCard = ({photo}: PhotoCardProps) => {
                     className={styles.photo}
                 />
                 <div className={styles.overlay}>
-                    <div className="overlay-top"></div>
+                    <div className={styles.overlayTop}>
+                        <CollectionToggle
+                            initialValue={isInCollection}
+                            isAuthenticated={isAuthenticated}
+                            data={photo}
+                        />
+                    </div>
                     <UserData
                         src={photo.user.profile_image.small}
                         name={photo.user.name}

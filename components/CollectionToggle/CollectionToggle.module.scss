@@ -1,0 +1,19 @@
+@use '@/styles/variables' as variables;
+
+.button {
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.buttonBg {
+  background-color: variables.$gray-200;
+  border: 1px solid variables.$gray-200;
+  transition: border 0.2s ease;
+
+  &:hover {
+    border: 1px solid variables.$gray-600;
+  }
+}
