@@ -66,9 +66,13 @@
           display: flex;
           justify-content: end;
         }
+
+        @media (max-width: 767px) {
+          display: none;
+        }
       }
 
-      &:hover .overlay, &:focus-visible .overlay {
+      &:hover .overlay, &:focus-visible .overlay, &:focus-within .overlay {
         visibility: visible;
         opacity: 1;
       }
@@ -79,7 +83,8 @@
       display: none;
 
       @media (max-width: 767px) {
-        display: block;
+        display: flex;
+        justify-content: space-between;
       }
     }
   }

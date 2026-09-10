@@ -22,6 +22,11 @@ const PhotoCard = ({photo, isInCollection, isAuthenticated}: PhotoCardProps) => 
                     name={photo.user.name}
                     color={'#000'}
                 />
+                <CollectionToggle
+                    initialValue={isInCollection}
+                    isAuthenticated={isAuthenticated}
+                    data={photo}
+                />
             </div>
             <Link href={'/photo/' + photo.id} rel="noopener noreferrer" className={styles.photoLink}>
                 <Image
