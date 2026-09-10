@@ -1,0 +1,20 @@
+@use '@/styles/photoCardBase' as *;
+@use '@/styles/variables' as variables;
+
+@include PhotoCardBase;
+
+.removeBtn {
+  padding: 6px;
+  border-radius: 6px;
+  color: variables.$gray-600;
+  border: 1px solid variables.$gray-200;
+  background-color: variables.$gray-200;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    border-color: variables.$gray-600;
+    color: #000;
+  }
+}

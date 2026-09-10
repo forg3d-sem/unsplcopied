@@ -1,12 +1,13 @@
 import React from 'react';
-import {DetailedPhoto} from "@/lib/unsplash/types";
-
 import PhotoDisplay from "@/components/PhotoPageComponents/PhotoDisplay/PhotoDisplay";
 import UserData from "@/components/UserData/UserData";
 import PhotoAbout from "@/components/PhotoPageComponents/PhotoAbout/PhotoAbout";
 import Tags from "@/components/PhotoPageComponents/Tags/Tags";
 import {getPhotoById} from "@/lib/unsplash/";
 import {Metadata} from "next";
+import CollectionToggle from "@/components/CollectionToggle/CollectionToggle";
+import {auth} from "@/lib/auth/auth";
+import {getCollectionPhotos} from "@/actions/collection";
 
 
 type PhotoPageProps = {
@@ -24,10 +25,12 @@ export async function generateMetadata({params}:PhotoPageProps):Promise<Metadata
 
 const PhotoPage = async ({params}:PhotoPageProps) => {
 
+    const session = await auth();
+
     const { id } = await params;
 
-    const data:DetailedPhoto = await getPhotoById(id, 3600);
-
+    const [data, collection] = await Promise.all([getPhotoById(id, 3600), getCollectionPhotos()])
+    const isInCollection = collection.success ? collection.data.some((photo) => photo.unsplash_id === id) : false;
 
     return (
         <>
@@ -36,6 +39,12 @@ const PhotoPage = async ({params}:PhotoPageProps) => {
                     src={data.user.profile_image.small}
                     name={data.user.name}
                     color={'#000'}
+                />
+                <CollectionToggle
+                    isAuthenticated={!!session?.user.id}
+                    data={data}
+                    initialValue={isInCollection}
+                    hasBg={false}
                 />
             </div>
             <PhotoDisplay

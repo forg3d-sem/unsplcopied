@@ -3,4 +3,7 @@
 .gridToggle {
   background-color: transparent;
   border: variables.$gray-600;
+  display: block;
+  width: fit-content;
+  height: fit-content;
 }

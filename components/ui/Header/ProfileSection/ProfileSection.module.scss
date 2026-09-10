@@ -1,0 +1,13 @@
+@use '@/styles/variables' as variables;
+
+.link {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

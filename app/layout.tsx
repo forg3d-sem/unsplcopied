@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import './global.scss';
-import Header from "@/components/Header/Header";
-import Frame from "@/components/Frame/Frame";
+import Header from "@/components/ui/Header/Header";
+import Frame from "@/components/ui/Frame/Frame";
 
 
 export const metadata: Metadata = {
