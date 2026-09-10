@@ -4,7 +4,6 @@ import {User} from "@/utility/types";
 
 export async function createUser(user:Pick<User, 'first_name' | 'email' | 'pass_hash'>) {
     const {first_name, email, pass_hash} = user;
-    console.error(user)
 
     const result = await pool.query(
         `

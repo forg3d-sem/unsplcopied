@@ -43,7 +43,6 @@ export async function toggleSave(
     imageData: Photo | DetailedPhoto
 ): Promise<ActionResult<SimplifiedPhoto | null>> {
 
-    console.log('saved status: ', isSaved);
     const session = await auth();
     if (!session?.user?.id) {
         return {success: false, error: "Unauthorized"};

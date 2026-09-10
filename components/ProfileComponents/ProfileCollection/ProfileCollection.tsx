@@ -14,7 +14,7 @@ interface ProfileCollectionProps {
 }
 
 const optimisticRemove = (photos: SimplifiedPhoto[], id: string) => {
-    return photos.filter((photo) => photo.id !== id);
+    return photos.filter((photo) => photo.unsplash_id !== id);
 }
 
 const ProfileCollection = ({initialPhotos, params}: ProfileCollectionProps) => {
